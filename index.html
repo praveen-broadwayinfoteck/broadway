@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<html ng-app>
+    <head>
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="http://twitter.github.com/bootstrap/assets/css/bootstrap-responsive.css" rel="stylesheet" type="text/css" />
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/angular.js/1.0.3/angular.min.js"></script>
+
+    <script >
+        function myCtrl($scope,  $window) {
+            $scope.vm = {};
+            $scope.vm.Courses = [
+              { Id: 1, Name: "Course 1"},
+              { Id: 2, Name: "Course 2"}
+              ];
+$scope.vm1 = {};
+            $scope.vm1.Department = [
+              { Id: 1, DpName: "IT"},
+              { Id: 2, DpName: "Account"},
+			  { Id: 3, DpName: "HR"}
+              ];
+
+            $scope.OpenCourse = function(courseId) {
+                $window.alert("Called " + courseId);
+            }
+        }
+    </script>
+</head>
+<body ng-controller="myCtrl">
+    <div>  
+        
+		<div ng-repeat="course in vm.Courses" ng-click="OpenCourse(course.Id)">
+            <div>
+                <div>
+                    <label>{{course.Name}}</label>
+                </div>
+            </div>
+        </div>
+
+		<div ng-repeat="depart in vm1.Department" >
+            <div>
+                <div>
+                    <label>{{depart.DpName}}</label>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</body>
+</html>
